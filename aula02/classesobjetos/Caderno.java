@@ -9,6 +9,7 @@ public class Caderno {
 	public int qtdMaterias;
 	public String formato;
 	public boolean aberto = false;
+	StringBuffer folhas = new StringBuffer();
 	
 //	Comportamentos (3)
 	public void abrir(){
@@ -18,7 +19,9 @@ public class Caderno {
 	
 	public void escrever(String texto){
 		if(aberto){
-			System.out.println(texto);
+			folhas.append(texto);
+			folhas.append("\n");
+			System.out.println("Foi escrito.");
 		} else {
 			System.out.println("Abra o caderno primeiro!");
 		}
@@ -27,6 +30,15 @@ public class Caderno {
 	public void fechar(){
 		System.out.println("O caderno foi fechado.\n");
 		aberto = false;
+	}
+	
+	public void ler(){
+		if(aberto){
+			System.out.println();
+			System.out.println ("Leitura:\n" + folhas.toString());
+		} else {
+			System.out.println("Abra o caderno primeiro!");
+		}
 	}
 	
 	

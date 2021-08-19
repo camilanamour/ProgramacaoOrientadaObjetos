@@ -19,8 +19,11 @@ public class Principal {
 		Caderno bela = new Caderno();
 		bela.capa = "Bela"; bela.tipo = "Espiral"; bela.qtdMaterias = 1; bela.numeroPaginas = 100; bela.formato = "A5";
 		
+		bela.escrever("Esse caderno (" + bela.capa + ") que é o objeto 1 da classe Caderno.");
 		bela.abrir();
 		bela.escrever("Esse caderno (" + bela.capa + ") que é o objeto 1 da classe Caderno.");
+		bela.escrever("E colocarei mais esse texto");
+		bela.ler();
 		bela.fechar();
 		
 //		Objeto 2

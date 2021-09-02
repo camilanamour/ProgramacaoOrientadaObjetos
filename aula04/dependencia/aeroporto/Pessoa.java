@@ -2,30 +2,31 @@ package aula04.dependencia.aeroporto;
 
 public class Pessoa {
 	private String nome;
-	private String cpf;
+	private String documento;
+	private String passaporte;
 	private float peso;
 	
+	public Pessoa(String nome, String documento, String passaporte, float peso) {
+		this.nome = nome;
+		this.passaporte = passaporte;
+		this.documento = documento;
+		this.peso = peso;
+	}
 	
-	protected void falar(){
-		System.out.printf("%s está falando...%n",this.nome);
+	protected void checkin(){
+		System.out.printf("%s, com documento %s e passaporte %s fez check in.%n",this.nome, this.documento, this.passaporte);
 	}
 	
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public String getDocumento() {
+		return documento;
 	}
 	public float getPeso() {
 		return peso;
 	}
-	public void setPeso(float peso) {
-		this.peso = peso;
+	public String getPassaporte(){
+		return passaporte;
 	}
 }

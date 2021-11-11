@@ -92,15 +92,17 @@ public class PetController {
 
         try {
             Connection con = getConnection();
-            String sql = String.format(Locale.ROOT, "INSERT INTO pet (id, nome, raca, peso, nascimento) " +
-                    "VALUES (%d, '%s', '%s', %f, '%s')",
-                    pet.getId(),
-                    pet.getNome(),
-                    pet.getRaca(),
-                    pet.getPeso(),
-                    pet.getDataNascimento());
+            String sql = "INSERT INTO pet (id, nome, raca, peso, nascimento) " +
+                    "VALUES (?, ?, ?, ?, ?)";
             System.out.println(sql);
+            
             PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setLong(1,pet.getId());
+            stmt.setString(2,pet.getNome());
+            stmt.setString(3, pet.getRaca());
+            stmt.setDouble(2, pet.getPeso());
+            stmt.setDate(5, java.sql.Date.valueOf(pet.getDataNascimento()));
+            
             stmt.executeUpdate();
             con.close();
         } catch (SQLException e) {
